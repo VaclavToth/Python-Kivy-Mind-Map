@@ -5,7 +5,7 @@ Bugy:
 Mapa se načte až po restartování aplikace
 
 TODO:
-Popis funkcí
-Obrázky
-Šipky
-Konflikty mezi větvema (směry)
+Popis funkcí 
+Obrázky 
+Šipky 
+Konflikty mezi větvema (směry) 
