@@ -1,0 +1,159 @@
+#Tady se nachází veškeré grafika pro Appku - velikost přizpůsobivá podle okna
+#Máme 4 základní obrazovky - Menu, kde jsou všechny tlačítka
+#Ukaž - pouze ukázání
+#Edit - Přidání, úprava a smazaní dat
+#Mapa - Mapa je tvořena daty tzn tady je základ, ale tvoří se v Pythonu, Mapa se nepřizpůsobuje obrazovce, ale je na pevno
+
+Spravce:
+    Menu:
+    Sc_ukaz_data:
+    Sc_edit:
+    Sc_mapa:
+
+
+<Menu>:
+    name: "menu"
+    FloatLayout:
+        size: root.width * 0.99, root.height * 0.99
+
+        Button:
+            text: "Ukaž graf"
+            pos_hint:{"x": 0.4, "y": 0.8}
+            size_hint: .2, .2
+            on_release: 
+                root.btn_ukaz_graf()
+                app.root.current = "Sc_mapa"
+                root.manager.transition.direction = "left"
+
+
+        Button:
+            text: "Ukaž data"
+            pos_hint:{"x": 0.4, "y": 0.6}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "Sc_ukaz_data"
+                root.manager.transition.direction = "left"
+                root.manager.screens[1].btn_ukaz_data()
+        
+        Button:
+            text: "Přidat dítě"
+            pos_hint:{"x": 0.4, "y": 0.4}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "Sc_edit"
+                root.manager.transition.direction = "left"
+                root.manager.screens[2].btn_pridat()
+
+        Button:
+            text: "Uprav ditě"
+            pos_hint:{"x": 0.4, "y": 0.2}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "Sc_edit"
+                root.manager.transition.direction = "left"
+                root.manager.screens[2].btn_upravit()
+
+        Button:
+            text: "Smaž deti"
+            pos_hint:{"x": 0.4, "y": 0.0}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "Sc_edit"
+                root.manager.transition.direction = "left"
+                root.manager.screens[2].btn_smazat()
+        
+        Button:
+            text: "Nahrát původní data"
+            pos_hint:{"x": 0.2, "y": 0.0}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "Sc_edit"
+                root.manager.transition.direction = "left"
+                root.manager.screens[2].btn_default()
+
+        Button:
+            text: "Smazat všechna data"
+            pos_hint:{"x": 0.6, "y": 0.0}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "Sc_edit"
+                root.manager.transition.direction = "left"
+                root.manager.screens[2].btn_smazat_vse()
+
+
+<Sc_ukaz_data>
+    name: "Sc_ukaz_data"
+    id: "ukaz_data"
+
+    FloatLayout:
+        size: root.width * 0.99, root.height * 0.99
+
+        FloatLayout:
+            size: root.width * 0.99, root.height * 0.50
+            pos_hint: {"x": 0, "y": 0.2}
+
+            Label:
+                id: seznam
+                size: root.width * 0.99, root.height * 0.40
+
+        # na konci
+        Button:
+            text: "Zpátky do menu"
+            pos_hint:{"x": 0.4, "y": 0.0}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+                root.btn_do_menu()
+
+<Sc_edit>
+    name: "Sc_edit"
+
+    FloatLayout:
+        size: root.width * 0.99, root.height * 0.99
+
+        Label:
+            pos_hint:{"x": .0, "y": .4}
+            id: pridani_hint
+
+        TextInput:
+            pos_hint:{"x": .25, "y": .7}
+            size_hint: (.5, 0.1)
+            id: rodic_input
+            multiline: False
+
+        FloatLayout:
+            size: root.width * 0.99, root.height * 0.50
+            pos_hint: {"x": 0, "y": 0.2}
+
+            Label:
+                id: seznam
+                size: root.width * 0.99, root.height * 0.40
+
+        # na konci
+        Button:
+            text: "Pokračovat"
+            pos_hint:{"x": .4, "y": 0.0}
+            size_hint: .2, .2
+            on_release:
+                root.btn_pokracovat()
+        
+        Button:
+            text: "Zpátky do menu"
+            pos_hint:{"x": 0, "y": 0.0}
+            size_hint: .2, .2
+            on_release:
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+                root.btn_do_menu()
+
+<Sc_mapa>
+    name: "Sc_mapa"
+    Button:
+        text: "Zpátky do menu"
+        pos_hint:{"x": 0, "y": 0.0}
+        size_hint: .2, .2
+        on_release:
+            app.root.current = "menu"
+            root.manager.transition.direction = "right"
+            root.btn_do_menu()
