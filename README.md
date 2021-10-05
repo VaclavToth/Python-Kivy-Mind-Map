@@ -4,7 +4,7 @@
 ![image](https://user-images.githubusercontent.com/91475993/135513897-8ca4d57e-d6ac-4582-afad-69061cf99018.png)
 
 Jak se vyznat v názvosloví:
-Uprostřed je kořen (výchozí Chci programovat). Kořen má děti - myšlenky dále od středu a ty mají zase svoje děti a tím pádem jsem jejich rodiče :)
+Uprostřed je kořen (výchozí Chci programovat). Kořen má děti - myšlenky dále od středu a ty mají zase svoje děti a tím pádem jsou jejich rodiče :)
 
 Bugy:
 Mapa se načte až po restartování aplikace
